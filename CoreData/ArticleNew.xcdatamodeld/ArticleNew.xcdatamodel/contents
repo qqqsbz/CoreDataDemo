@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14F27" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Article" syncable="YES">
+        <attribute name="cover" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="digest" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mainColor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="modelId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="releaseTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="subject" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Subject" inverseName="articles" inverseEntity="Subject" syncable="YES"/>
+    </entity>
+    <entity name="Subject" syncable="YES">
+        <attribute name="authorName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cover" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="digest" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="modelId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="articles" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Article" inverseName="subject" inverseEntity="Article" syncable="YES"/>
+        <relationship name="children" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Subject" inverseName="parent" inverseEntity="Subject" syncable="YES"/>
+        <relationship name="parent" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Subject" inverseName="children" inverseEntity="Subject" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Article" positionX="-45" positionY="0" width="128" height="178"/>
+        <element name="Subject" positionX="376" positionY="-0" width="128" height="163"/>
+    </elements>
+</model>
